@@ -1,44 +1,31 @@
-/* ── Hamburger button ── */
+/* Navbar no se usa en el flujo principal — está disponible pero oculto */
 .hamburger-btn {
   position: fixed;
-  top: 18px;
-  right: 18px;
-  background: rgba(28,28,30,0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border);
+  top: 18px; right: 18px;
+  background: #fff;
+  border: 1.5px solid var(--border);
   color: var(--text-primary);
-  width: 40px;
-  height: 40px;
+  width: 40px; height: 40px;
   border-radius: 50%;
   font-size: 1.1rem;
   cursor: pointer;
   z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   transition: var(--transition);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  box-shadow: var(--shadow-sm);
 }
 
-.hamburger-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+.hamburger-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── Dropdown ── */
 .admin-dropdown-menu {
   position: fixed;
-  top: 68px;
-  right: 18px;
-  background: rgba(28,28,30,0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  top: 68px; right: 18px;
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 14px;
   width: 210px;
-  box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   z-index: 999;
   transform: translateY(-8px) scale(0.97);
   opacity: 0;
@@ -54,25 +41,15 @@
 }
 
 .admin-dropdown-menu h4 {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.7rem; font-weight: 700;
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
-.navbar-greeting {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
-  padding: 0 2px;
-}
-
-.navbar-greeting strong {
-  color: var(--text-primary);
-  font-weight: 700;
-}
+.navbar-greeting { font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 10px; padding: 0 2px; }
+.navbar-greeting strong { color: var(--text-primary); font-weight: 700; }
 
 .btn-menu-login {
   width: 100%;
@@ -82,18 +59,10 @@
   padding: 10px 14px;
   border-radius: var(--radius-sm);
   font-family: var(--font);
-  font-size: 0.84rem;
-  font-weight: 600;
+  font-size: 0.84rem; font-weight: 600;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
   transition: var(--transition);
 }
 
-.btn-menu-login:hover {
-  background: var(--accent);
-  color: #000;
-  border-color: var(--accent);
-}
+.btn-menu-login:hover { background: var(--accent); color: #fff; border-color: var(--accent); }

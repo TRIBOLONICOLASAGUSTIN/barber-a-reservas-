@@ -7,36 +7,44 @@
 @import "./estilos/ViewAdmin.css";
 
 :root {
-  --bg-app:        #000000;
-  --bg-card:       #1C1C1E;
-  --bg-secondary:  #2C2C2E;
-  --bg-input:      #3A3A3C;
-  --accent:        #F5A623;
-  --accent-soft:   rgba(245, 166, 35, 0.14);
-  --accent-glow:   rgba(245, 166, 35, 0.25);
-  --text-primary:  #FFFFFF;
-  --text-secondary:#8E8E93;
-  --border:        rgba(255, 255, 255, 0.08);
-  --border-color:  rgba(255, 255, 255, 0.08);
-  --border-hover:  rgba(245, 166, 35, 0.4);
-  --success:       #30D158;
-  --success-soft:  rgba(48, 209, 88, 0.12);
-  --danger:        #FF453A;
-  --danger-soft:   rgba(255, 69, 58, 0.12);
+  /* ── Fondos ── */
+  --bg-app:        #E8B84B;
+  --bg-card:       #FFFFFF;
+  --bg-secondary:  #F4F4F4;
+  --bg-input:      #EEEEEE;
+
+  /* ── Dorado ── */
+  --accent:        #C8A44A;
+  --accent-soft:   rgba(200,164,74,0.15);
+  --accent-glow:   rgba(200,164,74,0.35);
+
+  /* ── Texto ── */
+  --text-primary:  #1A1A1A;
+  --text-secondary:#7A7A7A;
+
+  /* ── Bordes ── */
+  --border:        rgba(0,0,0,0.09);
+  --border-color:  rgba(0,0,0,0.09);
+  --border-hover:  rgba(200,164,74,0.5);
+
+  /* ── Estados ── */
+  --success:       #2E7D32;
+  --success-soft:  rgba(46,125,50,0.1);
+  --danger:        #C62828;
+  --danger-soft:   rgba(198,40,40,0.09);
+
+  /* ── Sombras y geometría ── */
+  --shadow-card:   0 4px 24px rgba(0,0,0,0.10);
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.08);
   --radius-sm:     10px;
   --radius-md:     16px;
   --radius-lg:     24px;
   --radius-pill:   50px;
-  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.5);
   --transition:    all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   --font:          'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html { scroll-behavior: smooth; }
 
@@ -54,15 +62,10 @@ body {
 }
 
 @keyframes fadeSlideUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInDown {
-  from { opacity: 0; transform: translateY(-10px); }
+  from { opacity: 0; transform: translateY(14px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-input {
-  animation: fadeSlideUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: fadeSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
 }

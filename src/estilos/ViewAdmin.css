@@ -1,8 +1,106 @@
-/* Admin styles — most styles are inline in ViewAdmin.jsx for flexibility */
-/* This file keeps only global overrides for the admin dashboard */
-
+/* ── Admin dashboard ── */
 .admin-dashboard {
   font-family: var(--font);
   color: var(--text-primary);
   min-height: 100vh;
+  padding: 80px 20px 40px;
+  max-width: 1060px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  background: var(--bg-app);
+}
+
+/* ── Metrics ── */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.metric-value { font-size: 1.9rem; font-weight: 700; margin-top: 6px; }
+
+/* ── Quick block ── */
+.quickblock-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.quickblock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ── Filter bar ── */
+.filter-bar { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+
+/* ── Table ── */
+.table-wrapper {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: var(--shadow-sm);
+}
+
+.admin-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; text-align: left; min-width: 600px; }
+
+.admin-table th {
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  font-weight: 600; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  background: var(--bg-secondary);
+}
+
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tbody tr:hover { background: var(--bg-secondary); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .admin-dashboard { padding: 68px 14px 28px; }
+  .metrics-grid { gap: 8px; }
+  .metric-card  { padding: 12px 14px; }
+  .metric-value { font-size: 1.6rem; }
+  .quickblock-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard { padding: 60px 10px 24px; }
+  .metrics-grid { grid-template-columns: 1fr; gap: 8px; }
+  .metric-card  { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; }
+  .metric-value { font-size: 1.5rem; margin-top: 0; }
+  .quickblock-section { padding: 14px; }
 }

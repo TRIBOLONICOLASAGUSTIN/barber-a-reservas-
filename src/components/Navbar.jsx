@@ -11,7 +11,7 @@ export const Navbar = ({ session, onIrALogin, onLogout }) => {
 
   return (
     <>
-      <button className="hamburger-btn" onClick={toggle} title="Menú">
+      <button type="button" className="hamburger-btn" onClick={toggle} title="Menú">
         {isOpen ? '✕' : '☰'}
       </button>
 
@@ -19,14 +19,14 @@ export const Navbar = ({ session, onIrALogin, onLogout }) => {
         {session ? (
           <>
             <p className="navbar-greeting">Hola, <strong>{nombre}</strong></p>
-            <button className="btn-menu-login" onClick={() => { onLogout(); close(); }}>
+            <button type="button" className="btn-menu-login" onClick={() => { onLogout(); close(); }}>
               Cerrar sesión
             </button>
           </>
         ) : (
           <>
             <h4>Gestión de cuenta</h4>
-            <button className="btn-menu-login" onClick={() => { onIrALogin(); close(); }}>
+            <button type="button" className="btn-menu-login" onClick={() => { onIrALogin(); close(); }}>
               Iniciar sesión / Registro
             </button>
           </>
