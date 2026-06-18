@@ -1,5 +1,4 @@
-/* src/App.css */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @import "./estilos/AppGlobal.css";
 @import "./estilos/ViewCliente.css";
@@ -8,11 +7,62 @@
 @import "./estilos/ViewAdmin.css";
 
 :root {
-  --bg-app: #0c0c0e;
-  --bg-card: #161619;
-  --bg-input: #1e1e23;
-  --accent: #f59e0b;
-  --border-color: #2a2a30;
-  --text-primary: #f4f4f5;
-  --text-secondary: #a1a1aa;
+  --bg-app:        #000000;
+  --bg-card:       #1C1C1E;
+  --bg-secondary:  #2C2C2E;
+  --bg-input:      #3A3A3C;
+  --accent:        #F5A623;
+  --accent-soft:   rgba(245, 166, 35, 0.14);
+  --accent-glow:   rgba(245, 166, 35, 0.25);
+  --text-primary:  #FFFFFF;
+  --text-secondary:#8E8E93;
+  --border:        rgba(255, 255, 255, 0.08);
+  --border-color:  rgba(255, 255, 255, 0.08);
+  --border-hover:  rgba(245, 166, 35, 0.4);
+  --success:       #30D158;
+  --success-soft:  rgba(48, 209, 88, 0.12);
+  --danger:        #FF453A;
+  --danger-soft:   rgba(255, 69, 58, 0.12);
+  --radius-sm:     10px;
+  --radius-md:     16px;
+  --radius-lg:     24px;
+  --radius-pill:   50px;
+  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.5);
+  --transition:    all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --font:          'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-layout {
+  min-height: 100vh;
+  background: var(--bg-app);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-input {
+  animation: fadeSlideUp 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
 }

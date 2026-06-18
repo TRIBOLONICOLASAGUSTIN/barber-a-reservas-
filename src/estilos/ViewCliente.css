@@ -1,366 +1,62 @@
-/* Sección Hero del Negocio */
+/* ── Hero ── */
 .business-hero {
-  padding: 32px 24px 24px 24px;
+  padding: 36px 24px 28px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0) 100%);
-  border-bottom: 1px solid var(--border-color);
+  background: linear-gradient(180deg, rgba(245,166,35,0.05) 0%, transparent 100%);
+  border-bottom: 1px solid var(--border);
 }
 
 .badge-rubro {
   display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 0.68rem;
+  font-weight: 700;
   color: var(--accent);
-  background-color: rgba(245, 158, 11, 0.1);
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 12px;
+  background: var(--accent-soft);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+  border: 1px solid rgba(245,166,35,0.2);
 }
 
 .business-hero h1 {
-  font-size: 26px;
-  font-weight: 700;
-  margin: 0 0 8px 0;
-  letter-spacing: -0.5px;
-  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
 }
 
 .hero-address {
-  font-size: 13px;
+  font-size: 0.82rem;
   color: var(--text-secondary);
-  margin: 0 0 14px 0;
 }
 
-.btn-maps-link {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 600;
-  color: #ffffff;
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 6px 14px;
-  border-radius: 30px;
-  border: 1px solid var(--border-color);
-  transition: all 0.2s;
-}
-
-.btn-maps-link:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: #52525b;
-}
-
-/* Cuerpo del Contenedor */
-.app-body {
-  padding: 24px;
-}
-
-h3 {
-  font-size: 12px;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0;
-  margin-bottom: 16px;
-  font-weight: 700;
-}
-
-/* Navegador de Mes y Flechas */
-.month-navigation {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  gap: 10px;
-}
-
-.month-header-badge {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border-color);
-  padding: 12px 16px;
-  border-radius: 14px;
-}
-
-.month-icon {
-  font-size: 14px;
-}
-
-.month-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.3px;
-}
-
-.nav-arrow-btn {
-  background: #1e1e23;
-  border: 1px solid var(--border-color);
-  color: var(--text-primary);
-  font-size: 16px;
-  font-weight: 600;
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.nav-arrow-btn:hover:not(:disabled) {
-  border-color: #52525b;
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--accent);
-}
-
-.nav-arrow-btn:disabled {
-  opacity: 0.25;
-  cursor: not-allowed;
-  background-color: transparent;
-}
-
-.next-month-indicator {
-  font-size: 9px;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-top: -2px;
-}
-
-/* Grilla de Calendario de Días */
-.days-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.day-btn {
-  flex: 1;
-  background: #1e1e23;
-  border: 1px solid var(--border-color);
-  padding: 12px 4px;
-  border-radius: 12px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s ease;
-}
-
-.day-btn:hover {
-  border-color: #52525b;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.day-name-text {
-  font-size: 11px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
+/* ── Cancel & auth feedback ── */
+.auth-error,
+.cancel-error {
+  background: var(--danger-soft);
+  border: 1px solid rgba(255,69,58,0.2);
+  color: var(--danger);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 0.5px;
 }
 
-.day-num-text {
-  font-size: 18px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.day-btn.selected {
-  background-color: rgba(245, 158, 11, 0.12) !important;
-  border-color: var(--accent) !important;
-}
-.day-btn.selected .day-name-text,
-.day-btn.selected .day-num-text {
-  color: var(--accent) !important;
-}
-
-/* Grilla de Horarios */
-.hours-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 24px;
-}
-
-.hour-btn {
-  background: #1e1e23;
-  border: 1px solid var(--border-color);
-  padding: 12px 0;
-  border-radius: 10px;
-  color: var(--text-primary);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.hour-btn:hover {
-  border-color: #52525b;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.hour-btn.selected {
-  background-color: #ffffff !important;
-  color: #000000 !important;
-  border-color: #ffffff !important;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-}
-
-/* Ocupado */
-.hour-btn.disabled {
-  background-color: var(--bg-card) !important;
-  color: #4b5563 !important;
-  border-color: #232329 !important;
-  cursor: not-allowed !important;
-  opacity: 0.35;
-  box-shadow: none !important;
-}
-
-/* Formulario e Inputs Modernos */
-.form-section {
-  border-top: 1px solid var(--border-color);
-  padding-top: 24px;
-}
-
-.input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 18px;
-}
-
-.input-group label {
-  font-size: 13px;
+.auth-success,
+.cancel-success {
+  background: var(--success-soft);
+  border: 1px solid rgba(48,209,88,0.2);
+  color: var(--success);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
   font-weight: 500;
-  color: var(--text-secondary);
 }
 
-.input-group input {
-  background-color: var(--bg-input);
-  border: 1px solid var(--border-color);
-  padding: 14px;
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.input-group input:focus {
-  border-color: #71717a;
-  box-shadow: 0 0 0 1px #71717a;
-}
-
-.btn-confirm-final {
-  width: 100%;
-  padding: 16px;
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 8px;
-  transition: background-color 0.2s;
-}
-
-.btn-confirm-final:hover {
-  background-color: #e4e4e7;
-}
-
-.btn-cancel-submit {
-  width: 100%;
-  padding: 16px;
-  background-color: #ef4444;
-  color: #ffffff;
-  border: none;
-  border-radius: 14px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.btn-cancel-submit:hover {
-  opacity: 0.9;
-}
-
-.cancel-desc {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-
-/* Info footer box */
-.info-footer-box {
-  margin-top: 32px;
-  background-color: rgba(255, 255, 255, 0.01);
-  border: 1px solid var(--border-color);
-  border-radius: 16px;
-  padding: 18px;
-}
-
-.info-footer-box h4 {
-  margin: 0 0 12px 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-primary);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.info-footer-box p {
-  margin: 6px 0;
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.box-divider {
-  height: 1px;
-  background-color: var(--border-color);
-  margin: 12px 0;
-}
-
-.contact-small span {
-  color: var(--accent);
-  font-weight: 600;
-}
-
-/* 📱 RESPONSIVE MÓVIL DE LA VISTA CLIENTE */
 @media (max-width: 480px) {
-  .business-hero { padding: 24px 16px 16px 16px; }
-  .app-body { padding: 20px 16px; }
-
-  .days-container {
-    justify-content: flex-start;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 8px;
-    gap: 8px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .days-container::-webkit-scrollbar { display: none; }
-  .day-btn { flex: 0 0 68px; padding: 14px 0; }
-
-  .hours-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .hour-btn { padding: 14px 0; font-size: 14px; }
-
-  .input-group input { padding: 16px; font-size: 16px; }
-  .btn-confirm-final, .btn-cancel-submit { padding: 18px; font-size: 16px; }
+  .business-hero { padding: 28px 18px 20px; }
+  .business-hero h1 { font-size: 1.5rem; }
 }
