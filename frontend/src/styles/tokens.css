@@ -1,0 +1,23 @@
+:root{
+  /* Paleta — blanco minimalista, monocromo + dorado de detalle */
+  --bg:#F5F5F7;
+  --bg-2:#EDEDEF;
+  --ink:#1D1D1F;
+  --ink-2:#6E6E73;
+  --ink-3:#9A9AA0;
+  --gold:#C0A05A;
+  --gold-soft:rgba(192,160,90,.14);
+  --line:rgba(0,0,0,.08);
+  --line-2:rgba(0,0,0,.05);
+  --glass:rgba(255,255,255,.62);
+  --glass-strong:rgba(255,255,255,.82);
+  --shadow:0 10px 40px rgba(0,0,0,.10);
+  --shadow-soft:0 4px 18px rgba(0,0,0,.06);
+  --radius:26px;
+  --radius-sm:16px;
+  --ok:#2F7D4F;
+  --ok-soft:rgba(47,125,79,.12);
+  --danger:#C2453A;
+  --danger-soft:rgba(194,69,58,.1);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Segoe UI",sans-serif;
+}
