@@ -6,6 +6,7 @@ import { SHOP } from '../../config/shop';
 import { iconForService } from '../../config/services';
 import { formatFechaLarga, formatFechaCorta, money, esPasado } from '../../lib/format';
 import { reservarTurno, turnosDeEmail, cancelarTurno } from '../../lib/turnos';
+import { enviarEmailReserva, enviarEmailCancelacion } from '../../lib/email';
 
 const CHIPS = [
   { icon: 'scissors', label: 'Cortes' },
@@ -36,9 +37,18 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
         fecha: date, hora: time, cliente: form.name,
         telefono: form.phone, email: form.email, servicio: service.name,
       });
-      setConfirmed({ service, date, time });
+      setConfirmed({ service, date, time, name: form.name, phone: form.phone, email: form.email });
       setStep('confirmed');
       await refresh();
+      enviarEmailReserva({
+        cliente: form.name,
+        telefono: form.phone,
+        email: form.email,
+        servicio: service.name,
+        fecha: formatFechaLarga(date),
+        hora: time,
+        precio: money(service.price),
+      });
     } catch (err) {
       alert('No se pudo reservar. Intentá de nuevo.');
       console.error(err);
@@ -253,6 +263,14 @@ function ManageCancel({ onBack, refresh, prefillEmail }) {
     setItems((prev) => prev.filter((x) => x.id !== t.id));
     setMsg(`Turno del ${formatFechaCorta(t.fecha)} a las ${t.hora} hs cancelado.`);
     refresh();
+    enviarEmailCancelacion({
+      cliente: t.cliente,
+      telefono: t.telefono,
+      email: t.email,
+      servicio: t.servicio,
+      fecha: formatFechaCorta(t.fecha),
+      hora: t.hora,
+    });
   };
 
   return (
