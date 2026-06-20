@@ -2,7 +2,7 @@ import { esPasado, isoToDate } from './format';
 
 // Turnos realmente reservados por clientes.
 export function turnosOcupados(rows) {
-  return rows.filter((t) => t.estado === 'ocupado');
+  return (rows || []).filter((t) => t.estado === 'ocupado');
 }
 
 // Divide un turno en pendiente / terminado por fecha.

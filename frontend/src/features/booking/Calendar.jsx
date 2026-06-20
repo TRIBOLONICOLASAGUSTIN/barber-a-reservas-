@@ -19,8 +19,10 @@ export default function Calendar({ map, work, selectedDate, setSelectedDate, sel
   const limiteISO = toISO(limite.getFullYear(), limite.getMonth(), limite.getDate());
 
   const nombreMes = new Date(vy, vm, 1).toLocaleString('es-ES', { month: 'long' });
-  const puedeAtras = vy > hoy.getFullYear() || vm > hoy.getMonth();
-  const puedeAdel = !(vy === hoy.getFullYear() + 1 && vm >= hoy.getMonth());
+  const puedeAtras = vy > hoy.getFullYear() || (vy === hoy.getFullYear() && vm > hoy.getMonth());
+  const nextM = vm === 11 ? 0 : vm + 1;
+  const nextY = vm === 11 ? vy + 1 : vy;
+  const puedeAdel = new Date(nextY, nextM, 1) <= limite;
 
   const prev = () => (vm === 0 ? (setVm(11), setVy((y) => y - 1)) : setVm((m) => m - 1));
   const next = () => (vm === 11 ? (setVm(0), setVy((y) => y + 1)) : setVm((m) => m + 1));

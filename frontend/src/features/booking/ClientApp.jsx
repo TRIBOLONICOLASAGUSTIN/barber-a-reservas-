@@ -23,6 +23,23 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
   const [form, setForm] = useState({ name: '', phone: '', email: '' });
   const [confirmed, setConfirmed] = useState(null);
   const [saving, setSaving] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
+
+  const soloLetras = (v) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s\-']*$/.test(v);
+  const soloTelefono = (v) => /^[\d+\-\s()]*$/.test(v);
+
+  const handleName = (v) => { if (soloLetras(v)) { setForm({ ...form, name: v }); setFormErrors((e) => ({ ...e, name: '' })); } };
+  const handlePhone = (v) => { if (soloTelefono(v)) { setForm({ ...form, phone: v }); setFormErrors((e) => ({ ...e, phone: '' })); } };
+
+  const validarForm = () => {
+    const errors = {};
+    if (!form.name.trim()) errors.name = 'Ingresá tu nombre';
+    else if (form.name.trim().length < 2) errors.name = 'Nombre demasiado corto';
+    if (!form.phone.trim()) errors.phone = 'Ingresá tu WhatsApp';
+    else if (form.phone.replace(/\D/g, '').length < 7) errors.phone = 'Número inválido';
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
 
   const reset = () => {
     setStep('landing'); setService(null); setDate(null); setTime(null);
@@ -31,6 +48,7 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
 
   const confirmar = async (e) => {
     e.preventDefault();
+    if (!validarForm()) return;
     setSaving(true);
     try {
       await reservarTurno({
@@ -186,12 +204,14 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
         <div className="field">
           <label>Nombre completo</label>
           <input required value={form.name} placeholder="Ej. Alexander Wright"
-            onChange={(e) => setForm({ ...form, name: e.target.value })} />
+            onChange={(e) => handleName(e.target.value)} />
+          {formErrors.name && <span className="field-error">{formErrors.name}</span>}
         </div>
         <div className="field">
           <label>WhatsApp</label>
           <input required type="tel" value={form.phone} placeholder="+34 600 00 00 00"
-            onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            onChange={(e) => handlePhone(e.target.value)} />
+          {formErrors.phone && <span className="field-error">{formErrors.phone}</span>}
         </div>
         <div className="field">
           <label>Email</label>

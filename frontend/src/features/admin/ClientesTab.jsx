@@ -22,7 +22,7 @@ export default function ClientesTab({ turnos }) {
       ) : clientes.map((u, i) => (
         <div key={i} className="usr">
           <div className="usr-head">
-            <div className="usr-av">{(u.nombre[0] || '?').toUpperCase()}</div>
+            <div className="usr-av">{((u.nombre || '?')[0] || '?').toUpperCase()}</div>
             <div className="usr-main">
               <b>{u.nombre}</b>
               <div className="u-ph"><Icon name="phone" size={12} /> {u.telefono || '—'}</div>
