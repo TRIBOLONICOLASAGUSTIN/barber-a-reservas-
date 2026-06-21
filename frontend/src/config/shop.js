@@ -13,3 +13,12 @@ export const SHOP = {
 
 // Email de la cuenta admin (Supabase Auth).
 export const ADMIN_EMAIL = 'admin@thegentsbarber.com';
+
+// Datos del barbero principal para la card de la landing.
+export const BARBER = {
+  nombre: 'Carlos Ruiz',
+  titulo: 'Master Barber',
+  foto: 'https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=400&q=80',
+  bio: 'Más de 12 años perfeccionando el arte del corte y la barba clásica. Formado en Madrid y Sevilla.',
+  especialidades: ['Fade clásico', 'Barba a navaja', 'Diseño capilar', 'Tratamientos'],
+};

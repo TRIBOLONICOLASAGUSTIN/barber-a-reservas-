@@ -18,7 +18,7 @@ const TABS = [
   { k: 'precios', label: 'Precios', icon: 'tag', eyebrow: 'Precios', title: 'Tarifas' },
 ];
 
-export default function AdminApp({ turnos, map, work, servicios, refresh, signOut }) {
+export default function AdminApp({ turnos, map, work, servicios, refresh, signOut, isDark, onThemeToggle }) {
   const [tab, setTab] = useState('turnos');
   const meta = TABS.find((t) => t.k === tab);
 
@@ -35,6 +35,9 @@ export default function AdminApp({ turnos, map, work, servicios, refresh, signOu
         <div className="logo-mark"><Icon name={meta.icon} size={22} /></div>
         <div><div className="a-eye">{meta.eyebrow}</div><h2>{meta.title}</h2></div>
         <div className="sp" />
+        <button className="icon-btn" title={isDark ? 'Modo claro' : 'Modo oscuro'} onClick={onThemeToggle}>
+          <Icon name={isDark ? 'sun' : 'moon'} />
+        </button>
         <button className="icon-btn" title="Cerrar sesión" onClick={signOut}><Icon name="logout" /></button>
       </div>
 

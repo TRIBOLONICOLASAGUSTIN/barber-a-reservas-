@@ -21,3 +21,24 @@
   --danger-soft:rgba(194,69,58,.1);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Segoe UI",sans-serif;
 }
+
+/* ── Dark mode ── */
+[data-theme="dark"]{
+  --bg:#111113;
+  --bg-2:#1C1C1E;
+  --ink:#F5F5F7;
+  --ink-2:#AEAEB2;
+  --ink-3:#636366;
+  --gold:#D4AF6A;
+  --gold-soft:rgba(212,175,106,.14);
+  --line:rgba(255,255,255,.10);
+  --line-2:rgba(255,255,255,.06);
+  --glass:rgba(28,28,30,.72);
+  --glass-strong:rgba(28,28,30,.88);
+  --shadow:0 10px 40px rgba(0,0,0,.45);
+  --shadow-soft:0 4px 18px rgba(0,0,0,.30);
+  --ok:#32D74B;
+  --ok-soft:rgba(50,215,75,.14);
+  --danger:#FF453A;
+  --danger-soft:rgba(255,69,58,.14);
+}

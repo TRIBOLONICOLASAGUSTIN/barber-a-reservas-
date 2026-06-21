@@ -299,3 +299,33 @@ button{cursor:pointer;}
 .spinner{width:22px;height:22px;border:2.5px solid var(--line);border-top-color:var(--ink);border-radius:50%;animation:spin .7s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg);}}
 .h12{height:12px;} .h20{height:20px;}
+
+/* ===== dark mode body override ===== */
+[data-theme="dark"] body{
+  background:
+    radial-gradient(120% 80% at 0% 0%,#1a1a1c 0%,transparent 55%),
+    radial-gradient(120% 90% at 100% 100%,var(--gold-soft) 0%,transparent 45%),
+    linear-gradient(180deg,#111113 0%,#0a0a0c 100%);
+}
+[data-theme="dark"] .price-row{background:var(--bg-2);}
+
+/* ===== barber card ===== */
+.barber-card{margin:14px 20px 4px;border-radius:var(--radius);padding:16px;border:1px solid rgba(255,255,255,.6);}
+[data-theme="dark"] .barber-card{border-color:rgba(255,255,255,.08);}
+.barber-card-top{display:flex;gap:14px;align-items:flex-start;}
+.barber-avatar{width:76px;height:76px;border-radius:50%;overflow:hidden;flex:0 0 auto;border:2.5px solid var(--gold);box-shadow:0 0 0 4px var(--gold-soft),var(--shadow-soft);}
+.barber-avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;}
+.barber-info{flex:1;min-width:0;}
+.barber-eyebrow{font-size:10px;font-weight:700;color:var(--gold);letter-spacing:.16em;text-transform:uppercase;display:flex;align-items:center;gap:5px;margin-bottom:4px;}
+.barber-name{font-size:15px;font-weight:800;letter-spacing:-.01em;line-height:1.15;color:var(--ink);}
+.barber-titulo{font-size:11px;font-weight:600;color:var(--gold);margin-top:2px;}
+.barber-bio{font-size:11.5px;color:var(--ink-2);margin-top:5px;line-height:1.45;}
+.barber-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px;}
+.barber-tag{font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:50px;background:var(--gold-soft);color:var(--gold);border:1px solid rgba(192,160,90,.25);}
+
+/* ===== install banner ===== */
+.install-banner{margin:0 20px 10px;border-radius:var(--radius-sm);padding:13px 14px;display:flex;align-items:center;gap:12px;border:1px solid var(--gold-soft);}
+.install-banner-txt{flex:1;min-width:0;}
+.install-banner-txt strong{display:block;font-size:13px;font-weight:800;color:var(--ink);}
+.install-banner-txt span{font-size:11.5px;color:var(--ink-2);margin-top:2px;display:block;}
+.install-banner-actions{display:flex;align-items:center;gap:8px;flex:0 0 auto;}

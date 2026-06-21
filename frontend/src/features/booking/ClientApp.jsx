@@ -7,6 +7,8 @@ import { iconForService } from '../../config/services';
 import { formatFechaLarga, formatFechaCorta, money, esPasado } from '../../lib/format';
 import { reservarTurno, turnosDeEmail, cancelarTurno } from '../../lib/turnos';
 import { enviarEmailReserva, enviarEmailCancelacion } from '../../lib/email';
+import BarberCard from './BarberCard';
+import InstallBanner from './InstallBanner';
 
 const CHIPS = [
   { icon: 'scissors', label: 'Cortes' },
@@ -15,7 +17,7 @@ const CHIPS = [
   { icon: 'spray', label: 'Tratamientos' },
 ];
 
-export default function ClientApp({ map, work, servicios, refresh, session, onAdminClick }) {
+export default function ClientApp({ map, work, servicios, refresh, session, onAdminClick, isDark, onThemeToggle }) {
   const [step, setStep] = useState('landing'); // landing|services|datetime|contact|confirmed|manage
   const [service, setService] = useState(null);
   const [date, setDate] = useState(null);
@@ -86,6 +88,9 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
             <div className="brand-tag">{SHOP.rubro}</div>
           </div>
           <div className="brand-spacer" />
+          <button className="icon-btn" title={isDark ? 'Modo claro' : 'Modo oscuro'} onClick={onThemeToggle}>
+            <Icon name={isDark ? 'sun' : 'moon'} />
+          </button>
           <button className="icon-btn" title="Admin" onClick={onAdminClick}><Icon name="shield" /></button>
         </div>
 
@@ -99,6 +104,8 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
           </div>
         </div>
 
+        <BarberCard />
+
         <div className="chips">
           {CHIPS.map((c) => (
             <div key={c.label} className="chip"><Icon name={c.icon} size={15} /> {c.label}</div>
@@ -109,6 +116,8 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
           <div className="info-row"><Icon name="pin" /><span>{SHOP.ubicacion}</span></div>
           <div className="info-row"><Icon name="clock" /><span>{SHOP.horariosTexto}</span></div>
         </div>
+
+        <InstallBanner />
 
         <div className="actions">
           <button className="btn" onClick={() => setStep('services')}>
