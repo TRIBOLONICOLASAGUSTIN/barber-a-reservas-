@@ -11,6 +11,8 @@
   --line-2:rgba(0,0,0,.05);
   --glass:rgba(255,255,255,.62);
   --glass-strong:rgba(255,255,255,.82);
+  --surface:#fff;            /* fondo de tarjetas/chips */
+  --on-ink:#fff;             /* texto sobre fondo --ink (botones llenos) */
   --shadow:0 10px 40px rgba(0,0,0,.10);
   --shadow-soft:0 4px 18px rgba(0,0,0,.06);
   --radius:26px;
@@ -35,6 +37,8 @@
   --line-2:rgba(255,255,255,.06);
   --glass:rgba(28,28,30,.72);
   --glass-strong:rgba(28,28,30,.88);
+  --surface:#1C1C1E;         /* fondo de tarjetas en oscuro */
+  --on-ink:#111113;          /* texto sobre fondo claro (--ink es claro en dark) */
   --shadow:0 10px 40px rgba(0,0,0,.45);
   --shadow-soft:0 4px 18px rgba(0,0,0,.30);
   --ok:#32D74B;
