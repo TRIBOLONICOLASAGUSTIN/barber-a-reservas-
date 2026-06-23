@@ -10,7 +10,8 @@ body{
     linear-gradient(180deg,#FAFAFB 0%,#EEEEF1 100%);
   background-attachment:fixed;
 }
-input,button,textarea{font-family:var(--font);}
+input,button,textarea,select{font-family:var(--font);color:var(--ink);}
+input::placeholder,textarea::placeholder{color:var(--ink-3);}
 button{cursor:pointer;}
 
 /* ===== app shell — mobile-first, centrado en PC ===== */
