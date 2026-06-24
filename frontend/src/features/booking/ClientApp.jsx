@@ -7,6 +7,7 @@ import { iconForService } from '../../config/services';
 import { formatFechaLarga, formatFechaCorta, money, esPasado } from '../../lib/format';
 import { reservarTurno, turnosDeEmail, cancelarTurno } from '../../lib/turnos';
 import { enviarEmailReserva, enviarEmailCancelacion } from '../../lib/email';
+import { emailValido, sugerirEmail } from '../../lib/validation';
 import BarberCard from './BarberCard';
 import InstallBanner from './InstallBanner';
 
@@ -26,12 +27,19 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
   const [confirmed, setConfirmed] = useState(null);
   const [saving, setSaving] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [emailSug, setEmailSug] = useState(null);
 
   const soloLetras = (v) => /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s\-']*$/.test(v);
   const soloTelefono = (v) => /^[\d+\-\s()]*$/.test(v);
 
   const handleName = (v) => { if (soloLetras(v)) { setForm({ ...form, name: v }); setFormErrors((e) => ({ ...e, name: '' })); } };
   const handlePhone = (v) => { if (soloTelefono(v)) { setForm({ ...form, phone: v }); setFormErrors((e) => ({ ...e, phone: '' })); } };
+  const handleEmail = (v) => {
+    setForm({ ...form, email: v });
+    setFormErrors((e) => ({ ...e, email: '' }));
+    setEmailSug(emailValido(v) ? sugerirEmail(v) : null);
+  };
+  const aplicarSugerencia = () => { setForm({ ...form, email: emailSug }); setEmailSug(null); };
 
   const validarForm = () => {
     const errors = {};
@@ -39,6 +47,8 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
     else if (form.name.trim().length < 2) errors.name = 'Nombre demasiado corto';
     if (!form.phone.trim()) errors.phone = 'Ingresá tu WhatsApp';
     else if (form.phone.replace(/\D/g, '').length < 7) errors.phone = 'Número inválido';
+    if (!form.email.trim()) errors.email = 'Ingresá tu email';
+    else if (!emailValido(form.email)) errors.email = 'Email inválido (ej. nombre@gmail.com)';
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -46,6 +56,7 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
   const reset = () => {
     setStep('landing'); setService(null); setDate(null); setTime(null);
     setForm({ name: '', phone: '', email: '' }); setConfirmed(null);
+    setFormErrors({}); setEmailSug(null);
   };
 
   const confirmar = async (e) => {
@@ -196,7 +207,7 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
   /* ───── DATOS ───── */
   if (step === 'contact') {
     return (
-      <form className="scroll anim-up" onSubmit={confirmar}>
+      <form className="scroll anim-up" onSubmit={confirmar} noValidate>
         <StepIndicator currentStep={3} />
         <div className="step-header">
           <button type="button" className="icon-btn" onClick={() => setStep('datetime')}><Icon name="chev-l" /></button>
@@ -225,7 +236,13 @@ export default function ClientApp({ map, work, servicios, refresh, session, onAd
         <div className="field">
           <label>Email</label>
           <input required type="email" value={form.email} placeholder="tu-correo@example.com"
-            onChange={(e) => setForm({ ...form, email: e.target.value })} />
+            onChange={(e) => handleEmail(e.target.value)} />
+          {formErrors.email && <span className="field-error">{formErrors.email}</span>}
+          {emailSug && !formErrors.email && (
+            <button type="button" className="email-sug" onClick={aplicarSugerencia}>
+              ¿Quisiste decir <b>{emailSug}</b>?
+            </button>
+          )}
         </div>
         <div className="dock">
           <button className="btn" type="submit" disabled={saving}>
